@@ -41,15 +41,17 @@ Write a function named sortByLength that takes in an array of strings and return
 ------------------------------------------------------------------------------------------------ */
 
 const sortByLength = (arr) => {
-  arr.sort(function(a,b) {
-    a = a.length;
-    b = b.length;
-    if (a == b) return 0;
-    if (a > b) return 1;
-    return -1;
-});
-return arr;
+  arr.sort((a, b) => {
+    if (a.length > b.length) {
+      return 1;
+    } else if (a.length < b.length) {
+      return -1;
+    }
+  });
+  return arr;
 };
+
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
