@@ -34,7 +34,13 @@ For example, [[1, 2, 3, 4, 5], [6, 7, 2, 4, 5, 7], [9, 2, 3, 6,]] returns 66.
 ------------------------------------------------------------------------------------------------ */
 
 const totalSum = (input) => {
-  return input.reduce((previous, current) => current.reduce((total, num) => total += num, previous), 0)
+  let sum = 0;
+  input.forEach(arr => {
+    arr.forEach(elem => {
+      sum += elem
+    })
+  })
+  return sum;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -50,17 +56,17 @@ For example, [ [0,2,5,4], [2,4,10], [] ] should return [ [1, 32], [1024], [] ].
 ------------------------------------------------------------------------------------------------ */
 
 const divisibleByFiveTwoToThePower = (input) => {
-  let newArr = [];
-  input.filter(setOfValues => {
-    let newSetOfValues = setOfValues.filter(value => {
+  let final = [];
+  input.filter(one => {
+    let two = one.filter(value => {
       if (value % 5 === 0 && typeof value === 'number') {
         return value;
       }
     });
-    let newSetOfValueArr = newSetOfValues.map(val => Math.pow(2, val))
-    newArr.push(newSetOfValueArr);
+    let block = two.map(val => Math.pow(2, val))
+    final.push(block);
   });
-  return newArr;
+  return final;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -145,8 +151,13 @@ Write a function named findShortest that, given the Star Wars data from Challeng
 ------------------------------------------------------------------------------------------------ */
 
 let findShortest = (data) => {
-  let bane = data.reduce((previous, current) => previous.name.length < current.name.length ? previous : current);
-  return bane.name;
+  let shorty = data[0];
+  for (let i = 1; i < data.length; i++) {
+    if (parseInt(data[i].height) < parseInt(shorty.height)) {
+      shorty = data[i];
+    }
+  }
+  return shorty.name;
 };
 
 /* ------------------------------------------------------------------------------------------------
