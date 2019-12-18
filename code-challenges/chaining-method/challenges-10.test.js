@@ -12,11 +12,15 @@ For example, count(5, [[1, 3, 5, 7, 9], [5, 5, 5], [1, 2, 3]]) returns 4.
 ------------------------------------------------------------------------------------------------ */
 
 const count = (target, input) => {
-  return input.reduce((count, num) => {
-    return num.reduce((counter, num) => {
-      return num === target ? counter += 1 : counter;
-    }, count)
-  }, 0)
+  let count = 0;
+  input.forEach(elem => {
+    elem.forEach(item => {
+      if (item === target) {
+        count++;
+      }
+    });
+  });
+  return count;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -47,14 +51,14 @@ For example, [ [0,2,5,4], [2,4,10], [] ] should return [ [1, 32], [1024], [] ].
 
 const divisibleByFiveTwoToThePower = (input) => {
   let newArr = [];
-  input.filter(set => {
-    let riddler = set.filter(value => {
+  input.filter(setOfValues => {
+    let newSetOfValues = setOfValues.filter(value => {
       if (value % 5 === 0 && typeof value === 'number') {
         return value;
       }
     });
-    let joker = riddler.map(val => Math.pow(2, val))
-    newArr.push(joker);
+    let newSetOfValueArr = newSetOfValues.map(val => Math.pow(2, val))
+    newArr.push(newSetOfValueArr);
   });
   return newArr;
 };
