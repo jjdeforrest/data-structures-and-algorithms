@@ -9,8 +9,11 @@ If the PIN is four numerical digits long, return true. Otherwise, return false.
 ------------------------------------------------------------------------------------------------ */
 
 const validatePin = (pin) => {
-  let regex = /^(\d{4}|\d{6})$/gm;
-  return regex.test(pin);
+  let joker = /^(\d{4}|\d{6})$/gm;
+  //console.log(joker);
+  let final = joker.test(pin);
+  //console.log(final);
+  return final;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -30,8 +33,11 @@ Note: if you ever need to validate an email using a regex in practice, the Inter
 ------------------------------------------------------------------------------------------------ */
 
 const validateEmail = (email) => {
-  let regex = /^\b[a-zA-z0-9]{2,}(\.[a-zA-z0-9]{2,})?\@[a-zA-z0-9]{2,}\.(net|com|org)\b/;
-  return email.match(regex);
+  let joker = /^\b[a-zA-z0-9]{2,}(\.[a-zA-z0-9]{2,})?\@[a-zA-z0-9]{2,}\.(net|com|org)\b/;
+  //console.log(joker);
+  let final = email.match(joker);
+  //console.log(final);
+  return final;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -56,8 +62,11 @@ Return either true or false.
 ------------------------------------------------------------------------------------------------ */
 
 const validatePhoneNumber = (phoneNumber) => {
-  let regex = /^(\([0-9]{3}\)|[0-9]{3})(\s|\-)?[0-9]{3}(\s|\-)?[0-9]{4}$/;
-  return phoneNumber.match(regex);
+  let joker = /^(\([0-9]{3}\)|[0-9]{3})(\s|\-)?[0-9]{3}(\s|\-)?[0-9]{4}$/;
+  //console.log(joker);
+  let final = phoneNumber.match(joker);
+  //console.log(final);
+  return final;
 };
 
 /* ------------------------------------------------------------------------------------------------
