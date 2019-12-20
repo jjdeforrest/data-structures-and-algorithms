@@ -157,8 +157,10 @@ const calculateAverage = (arr) => {
   let joker = arr.reduce((yo, one) => {
     yo.count++;
     yo.sum += one;
+    //console.log(yo);
     return yo;
   } ,{ count: 0, sum: 0 })
+  //console.log(joker);
   return joker.sum/joker.count;
 };
 
@@ -173,9 +175,11 @@ You are welcome to use the provided isPrime function.
 const isPrime = (value) => {
   for (let i = 2; i < value; i++) {
     if (value % i === 0) {
+      //console.log(value);
       return false;
     }
   }
+  //console.log(value);
   return value > 1;
 };
 
@@ -183,7 +187,9 @@ const countPrimeNumbers = (arr) => {
   return arr.reduce( (joker, yo) => {
     if (isPrime(yo)) { 
       joker += 1;
+      //console.log(joker);
     }
+    //console.log(joker);
     return joker;
   }, 0);
 };

@@ -12,15 +12,17 @@ For example, count(5, [[1, 3, 5, 7, 9], [5, 5, 5], [1, 2, 3]]) returns 4.
 ------------------------------------------------------------------------------------------------ */
 
 const count = (target, input) => {
-  let count = 0;
-  input.forEach(elem => {
-    elem.forEach(item => {
-      if (item === target) {
-        count++;
+  let joker = 0;
+  input.forEach(position => {
+    position.forEach(selection => {
+      if (selection === target) {
+        joker++;
+        //console.log(joker);
       }
     });
   });
-  return count;
+  //console.log(joker);
+  return joker;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -34,13 +36,15 @@ For example, [[1, 2, 3, 4, 5], [6, 7, 2, 4, 5, 7], [9, 2, 3, 6,]] returns 66.
 ------------------------------------------------------------------------------------------------ */
 
 const totalSum = (input) => {
-  let sum = 0;
-  input.forEach(arr => {
-    arr.forEach(elem => {
-      sum += elem
+  let joker = 0;
+  input.forEach(block => {
+    block.forEach(position => {
+      joker += position
+      //console.log(joker, position);
     })
   })
-  return sum;
+  //console.log(joker);
+  return joker;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -56,17 +60,21 @@ For example, [ [0,2,5,4], [2,4,10], [] ] should return [ [1, 32], [1024], [] ].
 ------------------------------------------------------------------------------------------------ */
 
 const divisibleByFiveTwoToThePower = (input) => {
-  let final = [];
-  input.filter(one => {
-    let two = one.filter(value => {
-      if (value % 5 === 0 && typeof value === 'number') {
-        return value;
+  let joker = [];
+  input.filter(first => {
+    let second = first.filter(position => {
+      if (position % 5 === 0 && typeof position === 'number') {
+        //console.log(position);
+        return position;
       }
+
     });
-    let block = two.map(val => Math.pow(2, val))
-    final.push(block);
+    let block = second.map(all => Math.pow(2, all))
+    joker.push(block);
+    //console.log(joker);
   });
-  return final;
+  //console.log(joker);
+  return joker;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -132,16 +140,18 @@ let starWarsData = [{
 }];
 
 let findMaleAndFemale = (data) => {
-  const batman = data.filter(value => {
-    if (value.gender === 'male' || value.gender === 'female') {
-      return value;
+  const batman = data.filter(joker => {
+    if (joker.gender === 'male' || joker.gender === 'female') {
+      //console.log(joker);
+      return joker;
     }
   });
-  return batman.reduce((string, currentObj) => {
-    if (typeof string === 'object') {
-      return string.name + ' and ' + currentObj.name;
-    } else return string + ' and ' + currentObj.name;
+  return batman.reduce((block, segment) => {
+    if (typeof block === 'object') {
+      return block.name + ' and ' + segment.name;
+    } else return block + ' and ' + segment.name;
   });
+  //console.log(batman);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -154,9 +164,11 @@ let findShortest = (data) => {
   let shorty = data[0];
   for (let i = 1; i < data.length; i++) {
     if (parseInt(data[i].height) < parseInt(shorty.height)) {
+      //console.log(shorty);
       shorty = data[i];
     }
   }
+  //console.log(shorty);
   return shorty.name;
 };
 
