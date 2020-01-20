@@ -9,14 +9,9 @@ For example, ['apple', 'banana', 'MacGyver'] returns ['Apple', 'Banana', 'MacGyv
 ------------------------------------------------------------------------------------------------ */
 
 const toTitleCase = (arr) => {
-  var bane = 0;
-  let joker = arr.map( val => {
-    var bane = val.filter( darkness => !darkness.includes('Brook'))
-    console.log(bane);
-    return bane;
-  })
-  console.log(joker);
-  return joker;
+  return arr.map(array => {
+    return array.charAt(0).toUpperCase() + array.slice(1, array.length);
+  });
 };
 
 /* ------------------------------------------------------------------------------------------------
